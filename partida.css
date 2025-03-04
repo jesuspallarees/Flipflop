@@ -1,0 +1,167 @@
+/* BIBLIOGRAFÍA
+      - ASIGNACIÓN DE VARIABLES EN CSS - (https://carontestudio.com/blog/anadir-tema-oscuro-css-javascript/)
+*/
+
+/* - TEMAS - */
+
+.tema1 {
+  --bg-img: url("./img/fondo0.webp");
+  --bg-gradient: linear-gradient(to bottom, #1b1f3a, #2c3e50, #6b7b8c);
+  --text-color: #babfdd;
+  --bg-color1: #1b1f3a;
+  --bg-color2: #2c3e50;
+  --bg-color3: #6b7b8c;
+  --border-color: #babfdd;
+
+  --carta-bg: url("./img/cartaTema0.webp");
+}
+
+.tema2 {
+  --bg-gradient: linear-gradient(to bottom, #3e1f0d, #6a3e19, #b88a44);
+  --bg-img: url("./img/fondo1.webp");
+  --text-color: #f5e6c8;
+  --bg-color1: #3e1f0d;
+  --bg-color2: #6a3e19;
+  --bg-color3: #b88a44;
+  --border-color: #f5e6c8;
+  --carta-bg: url("./img/cartaTema1.webp");
+}
+
+.tema3 {
+  --bg-gradient: linear-gradient(to bottom, #0d0f1e, #2a2b4d, #5a3e79);
+  --bg-img: url("./img/fondo2.webp");
+  --text-color: #d1b2ff;
+  --bg-color1: #0d0f1e;
+  --bg-color2: #2a2b4d;
+  --bg-color3: #5a3e79;
+  --border-color: #d1b2ff;
+  --carta-bg: url("./img/cartaTema2.webp");
+}
+
+/* --------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-gradient);
+  background-size: 200% 200%;
+  color: var(--text-color);
+  transition: background 0.5s ease-in-out, color 0.3s;
+  flex-direction: column;
+  font-family: "DynaPuff", sans-serif;
+  font-weight: 400;
+  animation: moveGradient 10s ease infinite;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.carta {
+  width: 200px;
+  height: 200px;
+  background-image: var(--carta-bg);
+  background-color: var(--bg-color1);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 3px solid var(--bg-color2); */
+  border-radius: 15px;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.25s ease-in, transform 0.25s ease-out;
+  transform-origin: center;
+}
+
+.carta:hover {
+  transform: scale(1.1);
+}
+
+.carta.volteada {
+  transform: rotateY(180deg);
+  border: 3px solid var(--border-color);
+}
+
+.carta.encontrada {
+  pointer-events: none;
+  background-color: var(--bg-color2);
+  transition: background-color 1s ease;
+  transition: border-width 0.1s ease-in-out;
+  border-width: 0px;
+}
+
+.imagenCarta {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  background-image: var(--carta-img);
+}
+
+.vidas {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.contenedor-vidas {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--bg-color1);
+  align-items: center;
+}
+
+button {
+  padding: 10px;
+  font-size: 40px;
+  border-radius: 20px;
+  border: 3px solid var(--bg-color2);
+  background-color: var(--bg-color3);
+  color: var(--bg-color1);
+  cursor: pointer;
+  font-family: "DynaPuff";
+  transition: background 0.3s, border 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: var(--bg-color1);
+  border: 3px solid var(--bg-color3);
+  color: white;
+}
+
+.estadisticas {
+  font-size: 40px;
+}

@@ -1,0 +1,120 @@
+/* BIBLIOGRAFÍA
+      - ASIGNACIÓN DE VARIABLES EN CSS - (https://carontestudio.com/blog/anadir-tema-oscuro-css-javascript/)
+*/
+
+/* - TEMAS - */
+
+.tema1 {
+  --bg-gradient: linear-gradient(to bottom, #1b1f3a, #2c3e50, #6b7b8c);
+  --text-color: #ffffff;
+  --bg-color1: #1b1f3a;
+  --bg-color2: #2c3e50;
+  --bg-color3: #6b7b8c;
+}
+
+.tema2 {
+  --bg-gradient: linear-gradient(to bottom, #3e1f0d, #6a3e19, #b88a44);
+  --text-color: #f5e6c8;
+  --bg-color1: #3e1f0d;
+  --bg-color2: #6a3e19;
+  --bg-color3: #b88a44;
+}
+
+.tema3 {
+  --bg-gradient: linear-gradient(to bottom, #0d0f1e, #2a2b4d, #5a3e79);
+  --text-color: #d1b2ff;
+  --bg-color1: #0d0f1e;
+  --bg-color2: #2a2b4d;
+  --bg-color3: #5a3e79;
+}
+
+/* --------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  transition: background 0.5s ease-in-out, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  font-family: "DynaPuff", sans-serif;
+  font-weight: 400;
+  background-size: 200% 200%;
+  animation: moveGradient 10s ease infinite;
+}
+
+/* Animación de fondo en movimiento */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+  flex: 1; 
+}
+
+button {
+  padding: 20px;
+  font-size: 2rem;
+  border-radius: 20px;
+  border: 3px solid var(--bg-color2);
+  background-color: var(--bg-color3);
+  color: var(--bg-color1);
+  cursor: pointer;
+  font-family: "DynaPuff";
+  transition: background 0.3s, border 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: var(--bg-color1);
+  border: 3px solid var(--bg-color3);
+  color: white;
+}
+
+a {
+  color: var(--bg-color1);
+  font-size: 50px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 120px;
+  color: white;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+
+img {
+  width: 80px;
+}
